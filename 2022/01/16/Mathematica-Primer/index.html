@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-60x60.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/favicon/manifest.json">
+  <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Calibri:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"theorems.ir","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Introduction Wolfram Mathematica is an interactive system for mathematical calculations. The Mathematica system is composed of two main components: the front end, where you write the input in theWo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mathematica Primer">
+<meta property="og:url" content="http://theorems.ir/2022/01/16/Mathematica-Primer/index.html">
+<meta property="og:site_name" content="Theorems">
+<meta property="og:description" content="Introduction Wolfram Mathematica is an interactive system for mathematical calculations. The Mathematica system is composed of two main components: the front end, where you write the input in theWo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://theorems.ir/files/tmp/mathematica-primer/sin-x-over-x.png">
+<meta property="article:published_time" content="2022-01-16T02:56:32.000Z">
+<meta property="article:modified_time" content="2022-02-22T18:17:44.860Z">
+<meta property="article:author" content="Homayoon">
+<meta property="article:tag" content="programming">
+<meta property="article:tag" content="mathematica">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://theorems.ir/files/tmp/mathematica-primer/sin-x-over-x.png">
+
+<link rel="canonical" href="http://theorems.ir/2022/01/16/Mathematica-Primer/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Mathematica Primer | Theorems</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Theorems</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Mathematics</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/htarbiyati" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://theorems.ir/2022/01/16/Mathematica-Primer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/thav.jpg">
+      <meta itemprop="name" content="Homayoon">
+      <meta itemprop="description" content="One's mind, once stretched by a new idea, never regains its original dimensions">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Theorems">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mathematica Primer
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-16 06:26:32" itemprop="dateCreated datePublished" datetime="2022-01-16T06:26:32+03:30">2022-01-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-22 21:47:44" itemprop="dateModified" datetime="2022-02-22T21:47:44+03:30">2022-02-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/numerical-analysis/" itemprop="url" rel="index"><span itemprop="name">numerical-analysis</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/numerical-analysis/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/numerical-analysis/programming/mathematica/" itemprop="url" rel="index"><span itemprop="name">mathematica</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>20k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>18 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="introduction">Introduction</h1>
+<p>Wolfram Mathematica is an interactive system for mathematical
+calculations. The Mathematica system is composed of two main components:
+the <em>front end</em>, where you write the input in theWolfram
+language, give execution commands, and see the output, and the
+<em>kernel</em>, which does the actual calculations. This distinction is
+important to remember because the kernel remembers all the operations in
+the order they are sent to it, and this order may have nothing to do
+with the order in which these commands are displayed in the front end.
+<span id="more"></span> You press "shift-enter". This sends the contents of this
+cell to the kernel, which executes it and returns a result that is
+displayed in the next cell.</p>
+<p>The definition of any function or symbol can be called up with the
+<code>?</code> command. For instance, <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?Factorial</span><br></pre></td></tr></table></figure> The arrow
+<code>&gt;&gt;</code> that appears at the end of this informative text
+is a hyperlink into the documentation, where (usually) instructive
+examples are presented.</p>
+<p>Calculate the numerical value of the Riemann zeta function <span
+class="math inline">\(\zeta (3)\)</span> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N[Zeta[3]]</span><br></pre></td></tr></table></figure> Square the
+previous result (<code>%</code>) with <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%^2</span><br></pre></td></tr></table></figure> Calculate <span
+class="math inline">\(\int_{0}^{\infty} \sin(x)e^{-x} \,dx\)</span> with
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integrate[Sin[x]*Exp[-x], &#123;x, 0, Infinity&#125;]</span><br></pre></td></tr></table></figure> Calculate the first 1000 digits of <span
+class="math inline">\(\pi\)</span> with <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N[Pi, 1000]</span><br></pre></td></tr></table></figure> or equivalently
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N[\[Pi], 1000]</span><br></pre></td></tr></table></figure> Calculate the analytic and numeric values of the
+Clebsch–Gordan coefficient <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ClebschGordan[&#123;100, 10&#125;, &#123;200, -12&#125;, &#123;110, -2&#125;]</span><br></pre></td></tr></table></figure> Calculate the limit <span
+class="math inline">\(\lim_{x\rightarrow 0} \frac{\sin x}{x}\)</span>
+with <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Limit[Sin[x]/x, x -&gt; 0]</span><br></pre></td></tr></table></figure> Make a plot of the above function with <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plot[Sin[x]/x, &#123;x, -20, 20&#125;, PlotRange -&gt; All]</span><br></pre></td></tr></table></figure>
+<img src="/files\tmp\mathematica-primer\sin-x-over-x.png"
+alt="sin-x-over-x.png" /> Draw a Mandelbrot set with <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MandelbrotSetPlot[]</span><br></pre></td></tr></table></figure> <img
+src="/files\tmp\mathematica-primer\mandelbrot-set-mathematica-primer.png"
+alt="mandelbrot-set-mathematica-primer.png" /></p>
+<h1 id="variables-and-assignments">Variables and Assignments</h1>
+<p>Variables in theWolfram language can be letters orwordswith uppercase
+or lowercase letters, including Greek symbols. Assigning a value to a
+variable is done with the <code>=</code> symbol.</p>
+<p>If you wish to suppress the output, then you must end the command
+with a semi-colon. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = 5;</span><br></pre></td></tr></table></figure> # Immediate and Delayed Assignments
+Consider the two commands <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = RandomReal[]</span><br><span class="line">b := RandomReal[]</span><br></pre></td></tr></table></figure> (your random number will be
+different). The first statement <code>a=...</code> is an <em>immediate
+assignment</em>, which means that its righthand side is evaluated when
+you press <code>shift-enter</code>, produces a specific random value,
+and is assigned to the variable <code>a</code> (and printed out). From
+now on, every time you use the variable a, the exact same number will be
+substituted. In this sense, the variable a contains the already
+specified random number and has no memory of where it got this number
+from.</p>
+<p>You can check the definition of a with <code>?a</code>:
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?a</span><br><span class="line">Global`a</span><br><span class="line">a = 0.38953</span><br></pre></td></tr></table></figure> The definition <code>b:=...</code> is a <em>delayed
+assignment</em>, which means that when you press
+<code>shift-enter</code> the right-hand side is not evaluated but merely
+stored as a definition of <code>b</code>. From now on, every time you
+use the variable <code>b</code>, its right-hand-side definition will be
+substituted and executed, resulting in a new random number each time.
+You can check the definition of <code>b</code> with <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?b</span><br><span class="line">Global`b</span><br><span class="line">b := RandomReal[]</span><br></pre></td></tr></table></figure> Let's
+compare the repeated performance of <code>a</code> and <code>b</code>:
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;a, b&#125;</span><br></pre></td></tr></table></figure> If you are familiar with computer file systems, you can
+think of an immediate assignments as a hard link (a direct link to a
+precomputed inode number) and a delayed assignment as a soft link
+(symbolic link, textual instructions for howto find the linked
+target).</p>
+<h1 id="four-kinds-of-bracketing">Four Kinds of Bracketing</h1>
+<p>There are four types of brackets in the Wolfram language:</p>
+<ul>
+<li>parentheses for grouping, for example in mathematical expressions:
+<code>2*(3-7)</code></li>
+<li>square brackets for function calls: <code>Sin[0.2]</code></li>
+<li>curly braces for lists: <code>v = &#123;a, b, c&#125;</code></li>
+<li>double square brackets for indexing within lists:
+<code>v[[2]]</code></li>
+</ul>
+<h1 id="prefix-and-postfix">Prefix and Postfix</h1>
+<p>There are several ways of evaluating a function call in the Wolfram
+language. As examples of function calls with a single argument, the main
+ways in which <span class="math inline">\(\sin(0.2)\)</span> and <span
+class="math inline">\(\sqrt{2+3}\)</span> can be calculated are</p>
+<h2 id="standard-notation">Standard notation</h2>
+<p>(infinite precedence):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Sin[0.2]</span><br><span class="line">Sqrt[2+3]</span><br><span class="line">Sqrt[5]</span><br></pre></td></tr></table></figure>
+<h2 id="prefix-notation">Prefix notation</h2>
+<p>with <code>@</code> (quite high precedence, higher than
+multiplication):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Sin @ 0.2</span><br><span class="line">Sqrt @ 2+3</span><br><span class="line">3+Sqrt[2]</span><br></pre></td></tr></table></figure>
+<p>Notice how the high precedence of the <code>@</code> operator
+effectively evaluates <code>(Sqrt@2)+3</code>, not
+<code>Sqrt@(2+3)</code>.</p>
+<h2 id="postfix-notation">Postfix notation</h2>
+<p>with <code>//</code> (quite low precedence, lower than addition):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0.2 //Sin</span><br><span class="line">2+3 //Sqrt</span><br><span class="line">Sqrt[5]</span><br></pre></td></tr></table></figure>
+<p>Notice how the low precedence of the <code>//</code> operator
+effectively evaluates <code>(2+3)//N</code>, not
+<code>2+(3//N)</code>.</p>
+<p>Postfix notation is often used to transform the output of a
+calculation:</p>
+<ul>
+<li>Adding <code>//N</code> to the end of a command will convert the
+result to decimal representation, if possible.</li>
+<li>Adding <code>//MatrixForm</code> to the end of amatrix
+calculationwill display the matrix in a tabular form.</li>
+<li>Adding <code>//Timing</code> to the end of a calculation will
+display the result together with the amount of time it took to
+execute.</li>
+</ul>
+<p>If you are not sure which form is appropriate, for example if you
+don’t know the precedence of the involved operations, then you should
+use the standard notation or place parentheses where needed.</p>
+<h1 id="programming-constructs">Programming Constructs</h1>
+<h2 id="procedural-programming">Procedural Programming</h2>
+<p>A subset of the Wolfram language behaves very similarly to C, Python,
+Java, or other procedural programming languages.Be very careful to
+distinguish semi-colons, which separate commands within a single block
+of code, from commas, which separate different code blocks!</p>
+<h2 id="looping-constructs">Looping constructs</h2>
+<p>behave like in common programming languages:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">For[i = 1, i &lt;= 5, i++, Print[i]]</span><br></pre></td></tr></table></figure>
+<p>Notice that <code>i</code> is now a globally defined variable, which
+you can check with <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?i</span><br><span class="line">Global`i</span><br><span class="line">i=6</span><br></pre></td></tr></table></figure> The following, on the other hand, does
+not define the value of the variable <code>j</code> in the global
+context: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Do[Print[j], &#123;j, 1, 5&#125;]</span><br><span class="line">?j</span><br></pre></td></tr></table></figure> In this sense, <code>j</code> is a local
+variable in the Do context. The following, again, defines <code>k</code>
+as a global variable: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">k = 1;</span><br><span class="line">While[k &lt;= 5, </span><br><span class="line">Print[k]; </span><br><span class="line">k++]</span><br><span class="line">?k</span><br></pre></td></tr></table></figure></p>
+<h2 id="conditional-execution">Conditional execution</h2>
+<p>The conditional statement
+<code>If[condition, dowhen-true, do-when-false]</code> follows the same
+logic as in every other programming language,</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If[5! &gt; 100,</span><br><span class="line">Print[&quot;larger&quot;],</span><br><span class="line">Print[&quot;smaller or equal&quot;]]</span><br></pre></td></tr></table></figure>
+<p>Notice that the If statement has a return value, similar to the
+<code>?</code> statement of C and Java: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = If[5! &gt; 100, 1, -1]</span><br></pre></td></tr></table></figure> Apart from
+<code>true</code> and <code>false</code>, Mathematica statements can
+have a third state: unknown.</p>
+<p>For example, the comparison <code>x==0</code> evaluates to neither
+<code>true</code> nor <code>false</code> if <code>x</code> is not
+defined. The fourth slot in the <code>If</code> statement covers this
+case: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x == 0</span><br><span class="line">x == 0</span><br><span class="line">If[x == 0, &quot;zero&quot;, &quot;nonzero&quot;, &quot;unknown&quot;]</span><br></pre></td></tr></table></figure></p>
+<h2 id="modularity">Modularity</h2>
+<p>code can use local variables within a <em>module</em>: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Module[&#123;i&#125;,</span><br><span class="line">i = 1;</span><br><span class="line">While[i &gt; 1/192, i = i/2];</span><br><span class="line">i]</span><br></pre></td></tr></table></figure>
+After the execution of this code, the variable <code>i</code> is still
+undefined in the global context.</p>
+<h1 id="functional-programming">Functional Programming</h1>
+<p>Functional programming is a very powerful programming technique that
+can give large speedups in computation because it can often be
+parallelized over many computers or CPUs. In our context, we often use
+lists (vectors or matrices) and want to apply functions to each one of
+their elements. The most common functional programming constructs
+are</p>
+<h2 id="anonymous-functions">Anonymous functions</h2>
+<p>you can quickly define a function with parameters <code>#1</code>,
+<code>#2</code>, <code>#3</code>, etc., terminated with the
+<code>&amp;</code> symbol: (the symbol <code>#</code> is an abbreviation
+for <code>#1</code>)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f = #^2 &amp;;</span><br><span class="line">f[7]</span><br><span class="line">g = #1-#2 &amp;;</span><br><span class="line">g[88, 9]</span><br></pre></td></tr></table></figure>
+<p>Functions and anonymous functions, for example <code>#^2&amp;</code>,
+are first-class objects just like numbers, matrices, etc. You can assign
+them to variables. you can also use them directly as arguments to other
+functions. you can use them as return values of other functions.</p>
+<p>The symbol <code>##</code> stands for the sequence of all parameters
+of a function:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = &#123;1,2,3,##,4,5,6&#125; &amp;;</span><br><span class="line">f[7,a,c]</span><br></pre></td></tr></table></figure>
+<p>The symbol <code>#0</code> stands for the function itself. This is
+useful for defining recursive anonymous functions.</p>
+<h2 id="map">Map</h2>
+<p><code>/@</code>: apply a function to each element of a list.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;1, 2, 3, 4, 5, 6, 7, 8&#125;;</span><br><span class="line">Map[#^2 &amp;, a]</span><br><span class="line">Output: &#123;1, 4, 9, 16, 25, 36, 49, 64&#125;</span><br><span class="line">#^2 &amp; /@ a</span><br><span class="line">Output: &#123;1, 4, 9, 16, 25, 36, 49, 64&#125;</span><br></pre></td></tr></table></figure>
+<p>Notice howwe have used the anonymous function <code>#^2&amp;</code>
+herewithout ever giving it a name.</p>
+<h2 id="apply">Apply</h2>
+<p><code>@@</code>: apply a function to an entire list and generate a
+single result. For example, applying <code>Plus</code> to a list will
+calculate the sum of the list elements; applying <code>Times</code> will
+calculate their product. This operation is also known as
+<em>reduce</em>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;1, 2, 3, 4, 5, 6, 7, 8&#125;;</span><br><span class="line">Apply[Plus, a]</span><br><span class="line">Plus @@ a</span><br><span class="line">Apply[Times, a]</span><br><span class="line">Times @@ a</span><br></pre></td></tr></table></figure>
+<h2 id="function-definitions">Function Definitions</h2>
+<p>Functions are assignments with parameters. As for parameter-free
+assignments, we distinguish between <em>immediate</em> and
+<em>delayed</em> function definitions.</p>
+<h2 id="immediate-function-definitions">Immediate Function
+Definitions</h2>
+<p>We start with immediate definitions: a function <span
+class="math inline">\(f(x)=\frac{\sin x}{x}\)</span> is defined with</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[x_] = Sin[x]/x;</span><br></pre></td></tr></table></figure>
+<p>Notice the underscore _ symbol after the variable name
+<code>x</code>: this underscore indicates a <em>pattern</em> (denoted by
+<code>_</code>) named <code>x</code>, not the symbol <code>x</code>
+itself. Whenever this function <code>f</code> is called with any
+parameter value, this parameter value is inserted wherever
+<code>x</code> appears on the right-hand side, as is expected for a
+function definition. You can find out how <code>f</code> is defined with
+the <code>?</code> operator:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?f</span><br><span class="line">Global`f</span><br><span class="line">f[x_] = Sin[x]/x</span><br></pre></td></tr></table></figure>
+<p>and you can ask for a function evaluation with</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f[0.3]</span><br><span class="line">f[0]</span><br><span class="line">Power: Infinite expression 1/0 encountered.</span><br><span class="line">Infinity: Indeterminate expression 0 ComplexInfinity encountered.</span><br><span class="line">Indeterminate</span><br></pre></td></tr></table></figure>
+<p>Apparently the function cannot be evaluated for <span
+class="math inline">\(x=0\)</span>. We can fix this by defining a
+special function value:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[0] = 1;</span><br></pre></td></tr></table></figure>
+<p>Notice that there is no underscore on the left-hand side, so there is
+no pattern definition. The full definition of <code>f</code> is now</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">?f</span><br><span class="line">Global‘f</span><br><span class="line">f[0] = 1</span><br><span class="line">f[x_] = Sin[x]/x</span><br></pre></td></tr></table></figure>
+<p>If the function <code>f</code> is called, then these definitions are
+checked in order of appearance in this list. For example, if we ask for
+<code>f[0]</code>, then the first entry matches and the value
+<code>1</code> is returned. If we ask for <code>f[0.3]</code>, then the
+first entry does not match (since <code>0</code> and <code>0.3</code>
+are not strictly equal), but the second entry matches since anything can
+be plugged into the pattern named <code>x</code>. The result is
+<code>sin(0.3)/0.3 = 0.985 067</code>, which is what we expected.</p>
+<h2 id="delayed-function-definitions">Delayed Function Definitions</h2>
+<p>Just like with delayed assignments, we can define delayed function
+calls. For comparison, we define the two functions</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g1[x_] = x + RandomReal[]</span><br><span class="line">g2[x_] := x + RandomReal[]</span><br></pre></td></tr></table></figure>
+<p>Check their effective definitions with <code>?g1</code> and
+<code>?g2</code>, and notice that the definition of <code>g1</code> was
+executed immediately when you pressed <code>shift-enter</code> and its
+result assigned to the function <code>g1</code> (with a specific value
+for the random number, as printed out), whereas the definition of
+<code>g2</code> was left unevaluated and is executed each time anew when
+you use the function <code>g2</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;g1[2], g2[2]&#125;</span><br><span class="line">&#123;g1[2], g2[2]&#125;</span><br><span class="line">&#123;g1[2], g2[2]&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="memoization-functions-that-remember-their-results"><a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Memoization">Memoization</a>:
+Functions that Remember Their Results</h2>
+<p>When we define a function that takes a long time to evaluate, we may
+wish to store its output values such that if the function is called with
+identical parameter values again, then we do not need to re-evaluate the
+function but can simply remember the already calculated result. We can
+make use of the interplay between patterns and values, and between
+immediate and delayed assignments, to construct such a function that
+remembers its values from previous function calls. See if you can
+understand the following definition.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F[x_] := F[x] = x^7</span><br></pre></td></tr></table></figure>
+<p>If you ask for <code>?F</code> then you will simply see this
+definition. Now call</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F[2]</span><br></pre></td></tr></table></figure>
+<p>and ask for <code>?F</code> again.You see that the specific immediate
+definition of <code>F[2] = 128</code> was added to the list of
+definitions, with the evaluated result <code>128</code> (which may have
+taken a long time to calculate in a more complicated function). The next
+time you call <code>F[2]</code>, the specific definition of
+<code>F[2]</code> will be found earlier in the definitions list than the
+general definition <code>F[x_]</code> and therefore the precomputed
+value of <code>F[2]</code> will be returned. When you re-define the
+function <code>F</code> after making modifications to it, you must clear
+the associated remembered values in order for them to be re-computed at
+the next occasion. It is a good practice to prefix every definition of a
+memoizing function with a <code>Clear</code> command:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Clear[F];</span><br><span class="line">F[x_] := F[x] = x^9</span><br></pre></td></tr></table></figure>
+<p>For function evaluations that take even longer, we may wish to save
+the accumulated results to a file in order to read them back at a later
+time. For the above example, we save all definitions associated with the
+symbol <code>F</code> to the file <code>Fdef.mx</code> with</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SetDirectory[NotebookDirectory[]];</span><br><span class="line">DumpSave[&quot;Fdef.mx&quot;, F];</span><br></pre></td></tr></table></figure>
+<p>The next time we wish to continue the calculation, we define the
+function <code>F</code> and load all of its already known values
+with</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Clear[F];</span><br><span class="line">F[x_] := F[x] = x^9</span><br><span class="line">SetDirectory[NotebookDirectory[]];</span><br><span class="line">Get[&quot;Fdef.mx&quot;];</span><br></pre></td></tr></table></figure>
+<h1 id="functions-with-conditions-on-their-arguments">Functions with
+Conditions on Their Arguments</h1>
+<p>The Wolfram language contains a powerful pattern language that we can
+use to define functions that only accept certain arguments. For function
+definitions we will use three main types of patterns:</p>
+<h2 id="anything-goes">Anything-goes</h2>
+<p>A function defined as <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[x_] := x^2</span><br></pre></td></tr></table></figure></p>
+<p>can be called with any sort of arguments, since the pattern
+<code>x_</code> can match <em>anything</em>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f[4]</span><br><span class="line">f[2.3-0.1I]</span><br><span class="line">f[&#123;1,2,3,4&#125;]</span><br><span class="line">&#123;1,4,9,16&#125;</span><br><span class="line">f[y^2]</span><br><span class="line">y^4</span><br></pre></td></tr></table></figure>
+<h2 id="type-restricted">Type-restricted</h2>
+<p>A pattern like <code>x_Integer</code> will only match arguments of
+integer type. If the function is called with a non-matching argument,
+then the function is not executed:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">g[x_Integer] := x-3</span><br><span class="line">g[x_Rational] := x</span><br><span class="line">g[x_Real] := x+3</span><br><span class="line">g[x_Complex] := 0</span><br><span class="line">g[7]</span><br><span class="line">4</span><br><span class="line">g[7.1]</span><br><span class="line">10.1</span><br><span class="line">g[2/3]</span><br><span class="line">2/3</span><br><span class="line">g[2+3I]</span><br><span class="line">0</span><br><span class="line">g[x]</span><br><span class="line">g[x]</span><br></pre></td></tr></table></figure>
+<h2 id="conditional">Conditional</h2>
+<p>Complicated conditions can be specified with the <code>/;</code>
+operator:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">h[x_/;x&lt;=3] := x^2</span><br><span class="line">h[x_/;x&gt;3] := x-11</span><br><span class="line">h[2]</span><br><span class="line">4</span><br><span class="line">h[5]</span><br><span class="line">-6</span><br></pre></td></tr></table></figure>
+<p>Conditions involving a single function call returning a Boolean
+value, for example <code>x_/;PrimeQ[x]</code>, can be abbreviated with
+<code>x_?PrimeQ</code>. Other useful "question" functions are
+<code>IntegerQ</code>, <code>NumericQ</code>, <code>EvenQ</code>,
+<code>OddQ</code>, etc. See
+<code>https://reference.wolfram.com/language/tutorial/PuttingConstraintsOnPatterns.html</code>
+for more information.</p>
+<h2 id="functions-with-optional-arguments">Functions with Optional
+Arguments</h2>
+<p>Function arguments can be optional, indicated with the <code>:</code>
+symbol. For each optional argument, a default value must be defined that
+is used whenever the function is called without the argument specified.
+The optional arguments must be the last ones in the arguments list.
+There can be arbitrarily many optional arguments.</p>
+<p>As an example, the function</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[a_, b_:5] = &#123;a,b&#125;</span><br></pre></td></tr></table></figure>
+<p>uses the default value <code>b=5</code> whenever it is called with
+only one argument:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f[7]</span><br><span class="line">&#123;7,5&#125;</span><br></pre></td></tr></table></figure>
+<p>When called with two arguments, the second argument overrides the
+default value for <code>b</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f[7,2]</span><br><span class="line">&#123;7,2&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="rules-and-replacements">Rules and Replacements</h1>
+<p>We will often use replacement rules in the calculations. A
+replacement rule is an instruction <code>x -&gt; y</code> that replaces
+any occurrence of the symbol (or pattern) <code>x</code> with the symbol
+<code>y</code>. We apply such a rule with the <code>/.</code> or
+<code>ReplaceAll</code> operator:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a + 2 /. a -&gt; 7</span><br><span class="line">ReplaceAll[a + 2, a -&gt; 7]</span><br><span class="line">c - d /. &#123;c -&gt; 2, d -&gt; 8&#125;</span><br><span class="line">ReplaceAll[c - d, &#123;c -&gt; 2, d -&gt; 8&#125;]</span><br></pre></td></tr></table></figure>
+<p>Rules can contain patterns, in the same way as we use them for
+defining the parameters of functions:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a + b /. x_ -&gt; x^2</span><br><span class="line">(a + b)^2</span><br></pre></td></tr></table></figure>
+<p>Notice that here the pattern <code>x_</code> matched the entire
+expression <code>a + b</code>, not the subexpressions <code>a</code> and
+<code>b</code>. To be more specific and do the replacement only at level
+1 of this expression, we can write</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Replace[a + b, x_ -&gt; x^2, &#123;1&#125;]</span><br><span class="line">a^2 + b^2</span><br></pre></td></tr></table></figure>
+<p>Doing the replacement at level 0 gives again</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Replace[a + b, x_ -&gt; x^2, &#123;0&#125;]</span><br><span class="line">(a + b)^2</span><br></pre></td></tr></table></figure>
+<p>At other instances, restricted patterns can be used to achieve a
+desired result:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a + 2 /. x_Integer -&gt; x^2</span><br><span class="line">4 + a</span><br></pre></td></tr></table></figure>
+<p>Many Wolfram language functions return their results as replacement
+rules. For example, the result of solving an equation is a list of
+rules:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = Solve[x^2 - 4 == 0, x]</span><br><span class="line">&#123;&#123;x -&gt; -2&#125;, &#123;x -&gt; 2&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>We can make use of these solutions with the replacement operator
+<code>/.</code>, for example to check the solutions:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x^2 - 4 /. s</span><br><span class="line">&#123;0, 0&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="immediate-and-delayed-rules">Immediate and Delayed Rules</h1>
+<p>Just as for assignments and functions, rules can be immediate or
+delayed. In an immediate rule of the form <code>x -&gt; y</code>, the
+value of <code>y</code> is calculated once upon defining the rule. In a
+delayed rule of the form <code>x :&gt; y</code>, the value of
+<code>y</code> is re-calculated every time the rule is applied. This can
+be important when the rule is supposed to perform an action. Here is an
+example: we replace <code>c</code> by <code>f</code> with</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;a, b, c, d, c, a, c, b&#125; /. c -&gt; f</span><br><span class="line">&#123;a, b, f, d, f, a, f, b&#125;</span><br></pre></td></tr></table></figure>
+<p>We do the same while counting the number of replacements with</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">i = 0;</span><br><span class="line">&#123;a, b, c, d, c, a, c, b&#125; /. c :&gt; (i++; Echo[i, &quot;replacement &quot;]; f)</span><br><span class="line">» replacement 1</span><br><span class="line">» replacement 2</span><br><span class="line">» replacement 3</span><br><span class="line">&#123;a, b, f, d, f, a, f, b&#125;</span><br><span class="line">i</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<p>In this case, the delayed rule
+<code>c :&gt; (i++; Echo[i, "replacement "]; f)</code> is a list of
+commands enclosed in parentheses <code>()</code> and separated by
+semicolons. The first command increments the replacement counter
+<code>i</code>, the second prints a running commentary, and the third
+gives the result of the replacement. The result of such a list of
+commands is always the last expression, in this case <code>f</code>.</p>
+<h1 id="repeated-rule-replacement">Repeated Rule Replacement</h1>
+<p>The <code>/.</code> operator uses the given list of replacement rules
+only once:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a /. &#123;a -&gt; b, b -&gt; c&#125;</span><br><span class="line">b</span><br></pre></td></tr></table></figure>
+<p>The <code>//.</code> operator, on the other hand, uses the
+replacement rules repeatedly until the result no longer changes (in this
+case, after two applications):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a //. &#123;a -&gt; b, b -&gt; c&#125;</span><br><span class="line">c</span><br></pre></td></tr></table></figure>
+<h1
+id="debugging-and-finding-out-how-mathematica-expressions-are-evaluated">Debugging
+and Finding Out How Mathematica Expressions are Evaluated</h1>
+<p>The precise way Mathematica evaluates an expression depends on many
+details and can become very complicated. For finding out more about
+particular cases, especially when they aren’t evaluated in the way that
+you were expecting, the <code>Trace</code> command may be useful. This
+command gives a list of all intermediate results, which helps in
+understanding the way that Mathematica arrives at its output:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Trace[x - 3x + 1]</span><br><span class="line">&#123;&#123;-(3x), -3x, -3x&#125;, x-3x+1, 1-3x+x, 1-2x&#125;</span><br><span class="line">x = 5;</span><br><span class="line">Trace[x - 3x + 1]</span><br><span class="line">&#123;&#123;x, 5&#125;, &#123;&#123;&#123;x, 5&#125;, 3\[Times]5, 15&#125;, -15, -15&#125;, 5-15+1, -9&#125;</span><br></pre></td></tr></table></figure>
+<p>A more verbose trace is achieved with <code>TracePrint</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">TracePrint[y - 3y + 1]</span><br><span class="line">y-3 y+1</span><br><span class="line">Plus</span><br><span class="line">y</span><br><span class="line">-(3 y)</span><br><span class="line">Times</span><br><span class="line">-1</span><br><span class="line">3 y</span><br><span class="line">Times</span><br><span class="line">3</span><br><span class="line">y</span><br><span class="line">-3 y</span><br><span class="line">-3 y</span><br><span class="line">Times</span><br><span class="line">-3</span><br><span class="line">y</span><br><span class="line">1</span><br><span class="line">y-3 y+1</span><br><span class="line">1-3 y+y</span><br><span class="line">1-2 y</span><br><span class="line">Plus</span><br><span class="line">1</span><br><span class="line">-2 y</span><br><span class="line">Times</span><br><span class="line">-2</span><br><span class="line">y</span><br><span class="line">1 - 2 y</span><br></pre></td></tr></table></figure>
+<p>It is very useful to print out intermediate results in a long
+calculation via the <code>Echo</code> command, particularly during code
+development. Calling <code>Echo[x,label]</code> prints <code>x</code>
+with the given label, and returns <code>x</code>; in this way, the
+<code>Echo</code> command can be simply added to a calculation without
+perturbing it:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In[125]: Table[Echo[i!, &quot;building table: &quot;], &#123;i, 3&#125;]</span><br><span class="line">» building table: 1</span><br><span class="line">» building table: 2</span><br><span class="line">» building table: 6</span><br><span class="line">&#123;1, 2, 6&#125;</span><br></pre></td></tr></table></figure>
+<p>In order to run your code "cleanly" after debugging it with
+<code>Echo</code>, you can either remove all instances of
+<code>Echo</code>, or you can re-define <code>Echo</code> to do
+nothing:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Unprotect[Echo]; Echo = #1 &amp;;</span><br></pre></td></tr></table></figure>
+<p>Re-running the code of <code>In[125]</code> now gives just the
+result:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Table[Echo[i!, &quot;building table: &quot;], &#123;i, 3&#125;]</span><br><span class="line">&#123;1, 2, 6&#125;</span><br></pre></td></tr></table></figure>
+<p>Finally, it can be very insightful to study the "full form" of
+expressions, especially when it does not match a pattern that you were
+expecting to match. For example, the internal full form of ratios
+depends strongly on the type of numerator or denominator:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FullForm[a/b]</span><br><span class="line">Times[a, Power[b, -1]]</span><br><span class="line">FullForm[1/2]</span><br><span class="line">Rational[1, 2]</span><br><span class="line">FullForm[a/2]</span><br><span class="line">Times[Rational[1, 2], a]</span><br><span class="line">FullForm[1/b]</span><br><span class="line">Power[b, -1]</span><br></pre></td></tr></table></figure>
+<h1 id="many-ways-to-define-the-factorial-function">Many Ways to Define
+the Factorial Function</h1>
+<p>The following list of definitions of the factorial function is based
+on the Wolfram <a
+target="_blank" rel="noopener" href="https://www.wolfram.com/training/videos/EDU002/">demo</a>. Try to
+understand as many of these definitions as possible. What this means in
+practice is that for most problems you can pick the programming paradigm
+that suits your way of thinking best, instead of being forced into one
+way or another. The different paradigms have different advantages and
+disadvantages, which may become clearer to you as you become more
+familiar with them.</p>
+<p>You must call <code>Clear[f]</code> between different
+definitions!</p>
+<ul>
+<li><p>Define the function <code>f</code> to be an alias of the built-in
+function <code>Factorial</code>: calling <code>f[5]</code> is now
+strictly the same thing as calling <code>Factorial[5]</code>, which in
+turn is the same thing as calling <code>5!</code>.
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = Factorial;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>A call to <code>f</code> is forwarded to the function
+"<code>!</code>": calling <code>f[5]</code> triggers the evaluation of
+<code>5!</code>. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := n!</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Use the mathematical definition <span
+class="math inline">\(n!=\Pi_{i=1}^{n} i\)</span> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := Gamma[n+1]</span><br></pre></td></tr></table></figure> Use the
+mathematical definition <span class="math inline">\(n!=\Pi_{i=1}^{n}
+i\)</span> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := Product[i, &#123;i,n&#125;]</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Rule-based recursion, using the Wolfram language's built-in
+pattern-matching capabilities: calling <code>f[5]</code> leads to a call
+of <code>f[4]</code>, which leads to a call of <code>f[3]</code>, and so
+on until <code>f[1]</code> immediately returns the result 1, after which
+the program unrolls the recursion stack and does the necessary
+multiplications: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f[1] = 1;</span><br><span class="line">f[n_] := n*f[n-1]</span><br></pre></td></tr></table></figure></p></li>
+<li><p>The same recursion but without rules (no pattern-matching):
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := If[n == 1, 1, n*f[n-1]]</span><br></pre></td></tr></table></figure> Define the same recursion through functional programming:
+<code>f</code> is a function whose name is <code>#0</code> and whose
+first (and only) argument is <code>#1</code>. The end of the function
+definition is marked with <code>&amp;</code>. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = If[#1 == 1, 1, #1*#0[#1-1]]&amp;;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>procedural programming with a <code>Do</code> loop:
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := Module[&#123;t = 1&#125;,</span><br><span class="line">Do[t = t*i, &#123;i, n&#125;];</span><br><span class="line">t]</span><br></pre></td></tr></table></figure></p></li>
+<li><p>procedural programming with a <code>For</code> loop: this is
+howyouwould compute factorials in procedural programming languages like
+C. It is a very precise step-by-step prescription of how exactly the
+computer is supposed to do the calculation. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := Module[&#123;t = 1, i&#125;,</span><br><span class="line">For[i = 1, i &lt;= n, i++,</span><br><span class="line">t *= i];</span><br><span class="line">t]</span><br></pre></td></tr></table></figure> Make a list
+of the numbers <span class="math inline">\(1\dots n\)</span> (with
+<code>Range[n]</code>) and then multiply them together at once, by
+applying the function <code>Times</code> to this list. This is themost
+elegant way of multiplying all these numbers together, because both the
+generation of the list of integers and their multiplication are done
+with internally optimized methods. The programmer merely specifies
+<em>what</em> he would like the computer to do, and not <em>how</em> it
+is to be done. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := Times @@ Range[n]</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Make a list of the numbers <span class="math inline">\(1\dots
+n\)</span> and then multiply them together one after the other.
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := Fold[Times, 1, Range[n]]</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Functional programming: make a list of functions <span
+class="math inline">\(\{t \mapsto t, t \mapsto 2t, t \mapsto 3t, \dots,
+t \mapsto nt\}\)</span>, and then, starting with the number 1, apply
+each of these functions once. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := Fold[#2[#1]&amp;, 1, Array[Function[t, #1*t]&amp;, n]]</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Construct a list whose length we know to be <span
+class="math inline">\(n!\)</span>: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := Length[Permutations[Range[n]]]</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Use repeated pattern-based replacement (<code>//.</code>) to find
+the factorial: start with the object <span class="math inline">\(\{1,
+n\}\)</span> and apply the given rule until the result no longer changes
+because the pattern no longer matches. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := First[&#123;1,n&#125; //. &#123;a_,b_/;b&gt;0&#125; :&gt; &#123;b*a,b-1&#125;]</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Build a string whose length is <span
+class="math inline">\(n!\)</span>: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := StringLength[Fold[StringJoin[Table[#1, &#123;#2&#125;]]&amp;, &quot;A&quot;, Range[n]]]</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Starting from the number <code>n</code>, repeatedly replace each
+number <code>m</code> by a list containing <code>m</code> times the
+number <code>m − 1</code>. At the end, we have a list of lists of <span
+class="math inline">\(\dots\)</span> of lists that overall contains
+<span class="math inline">\(n!\)</span> times the number 1. Flatten it
+out and count the number of elements. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := Length[Flatten[n //. m_ /; m &gt; 1 :&gt; Table[m - 1, &#123;m&#125;]]]</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Analytically calculate <span class="math inline">\(\frac{d^n
+(x^n)}{dx^n}\)</span> , the <span class="math inline">\(n\)</span>th
+derivative of <span class="math inline">\(x^n\)</span>:
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[n_] := D[x^n, &#123;x, n&#125;]</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/programming/" rel="tag"># programming</a>
+              <a href="/tags/mathematica/" rel="tag"># mathematica</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/12/30/Solving-Poisson-Equation-via-Finite-Difference-on-Complex-Domains/" rel="prev" title="Solving Poisson Equation via Finite Difference on Complex Domains">
+      <i class="fa fa-chevron-left"></i> Solving Poisson Equation via Finite Difference on Complex Domains
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/10/What-is-the-Formal-Definition-of-Probability-Distribution/" rel="next" title="What is the Formal Definition of Probability Distribution?">
+      What is the Formal Definition of Probability Distribution? <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#variables-and-assignments"><span class="nav-number">2.</span> <span class="nav-text">Variables and Assignments</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#four-kinds-of-bracketing"><span class="nav-number">3.</span> <span class="nav-text">Four Kinds of Bracketing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#prefix-and-postfix"><span class="nav-number">4.</span> <span class="nav-text">Prefix and Postfix</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#standard-notation"><span class="nav-number">4.1.</span> <span class="nav-text">Standard notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prefix-notation"><span class="nav-number">4.2.</span> <span class="nav-text">Prefix notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#postfix-notation"><span class="nav-number">4.3.</span> <span class="nav-text">Postfix notation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#programming-constructs"><span class="nav-number">5.</span> <span class="nav-text">Programming Constructs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#procedural-programming"><span class="nav-number">5.1.</span> <span class="nav-text">Procedural Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#looping-constructs"><span class="nav-number">5.2.</span> <span class="nav-text">Looping constructs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conditional-execution"><span class="nav-number">5.3.</span> <span class="nav-text">Conditional execution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#modularity"><span class="nav-number">5.4.</span> <span class="nav-text">Modularity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#functional-programming"><span class="nav-number">6.</span> <span class="nav-text">Functional Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#anonymous-functions"><span class="nav-number">6.1.</span> <span class="nav-text">Anonymous functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">6.2.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply"><span class="nav-number">6.3.</span> <span class="nav-text">Apply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function-definitions"><span class="nav-number">6.4.</span> <span class="nav-text">Function Definitions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#immediate-function-definitions"><span class="nav-number">6.5.</span> <span class="nav-text">Immediate Function
+Definitions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#delayed-function-definitions"><span class="nav-number">6.6.</span> <span class="nav-text">Delayed Function Definitions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memoization-functions-that-remember-their-results"><span class="nav-number">6.7.</span> <span class="nav-text">Memoization:
+Functions that Remember Their Results</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#functions-with-conditions-on-their-arguments"><span class="nav-number">7.</span> <span class="nav-text">Functions with
+Conditions on Their Arguments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#anything-goes"><span class="nav-number">7.1.</span> <span class="nav-text">Anything-goes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-restricted"><span class="nav-number">7.2.</span> <span class="nav-text">Type-restricted</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conditional"><span class="nav-number">7.3.</span> <span class="nav-text">Conditional</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#functions-with-optional-arguments"><span class="nav-number">7.4.</span> <span class="nav-text">Functions with Optional
+Arguments</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rules-and-replacements"><span class="nav-number">8.</span> <span class="nav-text">Rules and Replacements</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#immediate-and-delayed-rules"><span class="nav-number">9.</span> <span class="nav-text">Immediate and Delayed Rules</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#repeated-rule-replacement"><span class="nav-number">10.</span> <span class="nav-text">Repeated Rule Replacement</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#debugging-and-finding-out-how-mathematica-expressions-are-evaluated"><span class="nav-number">11.</span> <span class="nav-text">Debugging
+and Finding Out How Mathematica Expressions are Evaluated</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#many-ways-to-define-the-factorial-function"><span class="nav-number">12.</span> <span class="nav-text">Many Ways to Define
+the Factorial Function</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Homayoon"
+      src="/images/thav.jpg">
+  <p class="site-author-name" itemprop="name">Homayoon</p>
+  <div class="site-description" itemprop="description">One's mind, once stretched by a new idea, never regains its original dimensions</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/htarbiyati" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;htarbiyati" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Homayoon</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">37k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">34 mins.</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '0d995b794d7fce695e61',
+      clientSecret: '63e92413313dfb7551488e3addab0fb4d03aa160',
+      repo        : 'theorems',
+      owner       : 'htarbiyati',
+      admin       : ['htarbiyati'],
+      id          : 'dfd15a18a7611d98f766eef7aaffb8a7',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
