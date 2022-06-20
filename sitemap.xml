@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>http://theorems.ir/2021/07/16/Surface-integral-of-smooth-function/</loc>
-    
-    <lastmod>2022-03-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://theorems.ir/2022/01/16/Mathematica-Primer/</loc>
     
     <lastmod>2022-02-22</lastmod>
@@ -120,13 +111,6 @@
   </url>
   
   <url>
-    <loc>http://theorems.ir/tags/integral-equation/</loc>
-    <lastmod>2022-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://theorems.ir/tags/mathematica/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -151,13 +135,6 @@
   
   <url>
     <loc>http://theorems.ir/categories/numerical-analysis/programming/</loc>
-    <lastmod>2022-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://theorems.ir/categories/integral-equation/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
