@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>http://theorems.ir/2022/03/21/Fluid-Simulations-Part-1/</loc>
-    
-    <lastmod>2022-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://theorems.ir/2022/03/10/What-is-the-Formal-Definition-of-Probability-Distribution/</loc>
     
     <lastmod>2022-03-11</lastmod>
@@ -94,7 +85,7 @@
 
   <url>
     <loc>http://theorems.ir/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -102,42 +93,42 @@
   
   <url>
     <loc>http://theorems.ir/tags/programming/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/tags/numerical-analysis/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/tags/matlab/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/tags/probability/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/tags/integral-equation/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/tags/mathematica/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -146,70 +137,49 @@
   
   <url>
     <loc>http://theorems.ir/categories/numerical-analysis/</loc>
-    <lastmod>2022-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://theorems.ir/categories/programming/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/categories/probability/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/categories/numerical-analysis/programming/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/categories/integral-equation/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/categories/numerical-analysis/programming/matlab/</loc>
-    <lastmod>2022-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://theorems.ir/categories/simulation/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/categories/numerical-analysis/programming/mathematica/</loc>
-    <lastmod>2022-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://theorems.ir/categories/simulation/fluid/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://theorems.ir/categories/numerical-analysis/programming/julia/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
